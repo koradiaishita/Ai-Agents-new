@@ -1,0 +1,16 @@
+setup.py
+hr_management_system.egg-info/PKG-INFO
+hr_management_system.egg-info/SOURCES.txt
+hr_management_system.egg-info/dependency_links.txt
+hr_management_system.egg-info/requires.txt
+hr_management_system.egg-info/top_level.txt
+src/__init__.py
+src/main.py
+src/api/__init__.py
+src/api/routes.py
+src/modules/__init__.py
+src/modules/recruitment/__init__.py
+src/modules/recruitment/job_description_generator.py
+src/ui/__init__.py
+src/ui/static/__init__.py
+src/ui/templates/__init__.py

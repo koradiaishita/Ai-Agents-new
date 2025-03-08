@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{ page_title }} | HR Management System</title>
+    
+    <!-- Core Stylesheets with cache-busting mechanism -->
+    <link rel="stylesheet" href="{{ url_for('static', path='/css/main.css') }}?v=1.0.0">
+    
+    <!-- Google Material Design Resources -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <!-- Critical Meta Tags -->
+    <meta name="description" content="AI-powered HR management system with advanced recruitment, performance tracking, and employee development capabilities">
+    <meta name="theme-color" content="#4285F4">
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}" type="image/x-icon">
+    
+    <!-- Additional CSS -->
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h1>HR Management</h1>
+                <p>AI-Powered System</p>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="/" class="nav-item {% if active_page == 'dashboard' %}active{% endif %}">
+                    <span class="material-icons">dashboard</span>
+                    <span>Overview</span>
+                </a>
+                <a href="/recruitment" class="nav-item {% if active_page == 'recruitment' %}active{% endif %}">
+                    <span class="material-icons">people</span>
+                    <span>Recruitment</span>
+                </a>
+                <a href="/performance" class="nav-item {% if active_page == 'performance' %}active{% endif %}">
+                    <span class="material-icons">insert_chart</span>
+                    <span>Performance</span>
+                </a>
+                <a href="/feedback" class="nav-item {% if active_page == 'feedback' %}active{% endif %}">
+                    <span class="material-icons">feedback</span>
+                    <span>Feedback</span>
+                </a>
+                <a href="/recommendations" class="nav-item {% if active_page == 'recommendations' %}active{% endif %}">
+                    <span class="material-icons">trending_up</span>
+                    <span>Recommendations</span>
+                </a>
+                <a href="/settings" class="nav-item {% if active_page == 'settings' %}active{% endif %}">
+                    <span class="material-icons">settings</span>
+                    <span>Settings</span>
+                </a>
+            </nav>
+            
+            <!-- System Status Indicator -->
+            <div class="system-status">
+                <div class="status-indicator online"></div>
+                <span>System Online</span>
+            </div>
+        </aside>
+        
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Top Navigation Bar -->
+            <header class="main-header">
+                <div class="header-search">
+                    <span class="material-icons">search</span>
+                    <input type="text" id="ai-assistant-input" placeholder="Ask the AI Assistant...">
+                    <button id="ai-assistant-submit" aria-label="Submit query">
+                        <span class="material-icons">send</span>
+                    </button>
+                </div>
+                <div class="user-actions">
+                    <button class="notifications" aria-label="Notifications">
+                        <span class="material-icons">notifications</span>
+                        <span class="notification-badge">3</span>
+                    </button>
+                    <div class="user-profile" aria-label="User profile">
+                        <span class="user-initial">A</span>
+                        <span class="user-name">Admin</span>
+                        <span class="material-icons">arrow_drop_down</span>
+                    </div>
+                </div>
+            </header>
+            
+            <!-- Page Content -->
+            <div class="content-area">
+                {% block content %}
+                <!-- Dynamic page content -->
+                <div class="dashboard-container">
+                    <div class="dashboard-header">
+                        <h1>{{ page_title }}</h1>
+                        <p>AI-Powered Human Resources Management System</p>
+                    </div>
+                    
+                    <!-- Placeholder content for dashboard -->
+                    <div class="metrics-grid">
+                        <div class="card">
+                            <div class="metrics-card">
+                                <div class="metric-icon">
+                                    <span class="material-icons">people</span>
+                                </div>
+                                <div class="metric-content">
+                                    <div class="metric-value">24</div>
+                                    <div class="metric-label">Active Recruitments</div>
+                                    <div class="metric-change positive">
+                                        <span class="material-icons">arrow_upward</span>
+                                        <span>+3.2% from last month</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="card">
+                            <div class="metrics-card">
+                                <div class="metric-icon">
+                                    <span class="material-icons">insert_chart</span>
+                                </div>
+                                <div class="metric-content">
+                                    <div class="metric-value">92.5%</div>
+                                    <div class="metric-label">Team Performance</div>
+                                    <div class="metric-change positive">
+                                        <span class="material-icons">arrow_upward</span>
+                                        <span>+5.3% from last month</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="card">
+                            <div class="metrics-card">
+                                <div class="metric-icon">
+                                    <span class="material-icons">feedback</span>
+                                </div>
+                                <div class="metric-content">
+                                    <div class="metric-value">8.4</div>
+                                    <div class="metric-label">Feedback Score</div>
+                                    <div class="metric-change positive">
+                                        <span class="material-icons">arrow_upward</span>
+                                        <span>+0.2 from last month</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="card">
+                            <div class="metrics-card">
+                                <div class="metric-icon">
+                                    <span class="material-icons">trending_up</span>
+                                </div>
+                                <div class="metric-content">
+                                    <div class="metric-value">15</div>
+                                    <div class="metric-label">Career Progressions</div>
+                                    <div class="metric-change positive">
+                                        <span class="material-icons">arrow_upward</span>
+                                        <span>+4 from last month</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Quick Actions Card -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">Quick Actions</h2>
+                        </div>
+                        <div class="card-body">
+                            <div class="action-buttons">
+                                <a href="/recruitment" class="btn btn-primary">
+                                    <span class="material-icons btn-icon">add</span>
+                                    Create Job Posting
+                                </a>
+                                <a href="/performance" class="btn btn-outline">
+                                    <span class="material-icons btn-icon">assessment</span>
+                                    View Performance Reports
+                                </a>
+                                <a href="/feedback" class="btn btn-outline">
+                                    <span class="material-icons btn-icon">rate_review</span>
+                                    Analyze Feedback
+                                </a>
+                                <a href="/recommendations" class="btn btn-outline">
+                                    <span class="material-icons btn-icon">insights</span>
+                                    Career Recommendations
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endblock %}
+            </div>
+        </main>
+    </div>
+    
+    <!-- AI Assistant Modal -->
+    <div class="ai-assistant-modal" id="ai-assistant-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>AI Assistant</h2>
+                <button class="close-modal" aria-label="Close modal">
+                    <span class="material-icons">close</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="assistant-conversation" id="assistant-conversation">
+                    <div class="assistant-message">
+                        <div class="assistant-avatar">
+                            <span class="material-icons">smart_toy</span>
+                        </div>
+                        <div class="message-content">
+                            <p>Hello! How can I help you with HR management today?</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="assistant-input">
+                    <input type="text" id="modal-assistant-input" placeholder="Type your message...">
+                    <button id="modal-assistant-submit" aria-label="Send message">
+                        <span class="material-icons">send</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Core JavaScript -->
+    <script>
+        // Base functionality initialization
+        document.addEventListener('DOMContentLoaded', function() {
+            // AI Assistant integration
+            const assistantInput = document.getElementById('ai-assistant-input');
+            const assistantSubmit = document.getElementById('ai-assistant-submit');
+            const assistantModal = document.getElementById('ai-assistant-modal');
+            const modalInput = document.getElementById('modal-assistant-input');
+            const modalSubmit = document.getElementById('modal-assistant-submit');
+            const closeModal = document.querySelector('.close-modal');
+            const conversation = document.getElementById('assistant-conversation');
+            
+            // Modal toggle mechanism
+            assistantSubmit.addEventListener('click', function() {
+                const query = assistantInput.value.trim();
+                if (query) {
+                    // Open modal and transfer query
+                    assistantModal.classList.add('active');
+                    modalInput.value = query;
+                    // Clear input field
+                    assistantInput.value = '';
+                    // Future enhancement: Auto-submit query to API
+                }
+            });
+            
+            // Close modal with proper event delegation
+            closeModal.addEventListener('click', function() {
+                assistantModal.classList.remove('active');
+            });
+            
+            // Modal message submission
+            modalSubmit.addEventListener('click', async function() {
+                const query = modalInput.value.trim();
+                if (query) {
+                    // Append user message
+                    appendMessage(query, 'user');
+                    modalInput.value = '';
+                    
+                    // Future integration: API call to process query
+                    // Simulate processing for demonstration
+                    setTimeout(() => {
+                        appendMessage('I understand you\'re asking about "' + query + '". This will be implemented with the Gemini AI integration.', 'assistant');
+                    }, 500);
+                }
+            });
+            
+            // Enter key submission for both inputs
+            [assistantInput, modalInput].forEach(input => {
+                input.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        e.preventDefault();
+                        if (input === assistantInput) {
+                            assistantSubmit.click();
+                        } else {
+                            modalSubmit.click();
+                        }
+                    }
+                });
+            });
+            
+            // Helper function to append messages
+            function appendMessage(text, sender) {
+                const messageDiv = document.createElement('div');
+                messageDiv.className = sender + '-message';
+                
+                const avatarDiv = document.createElement('div');
+                avatarDiv.className = sender + '-avatar';
+                
+                const icon = document.createElement('span');
+                icon.className = 'material-icons';
+                icon.textContent = sender === 'user' ? 'person' : 'smart_toy';
+                
+                const contentDiv = document.createElement('div');
+                contentDiv.className = 'message-content';
+                
+                const paragraph = document.createElement('p');
+                paragraph.textContent = text;
+                
+                avatarDiv.appendChild(icon);
+                contentDiv.appendChild(paragraph);
+                messageDiv.appendChild(avatarDiv);
+                messageDiv.appendChild(contentDiv);
+                
+                conversation.appendChild(messageDiv);
+                conversation.scrollTop = conversation.scrollHeight;
+            }
+            
+            // Initialize system status indicator
+            updateSystemStatus();
+            
+            // Simulate periodic status checks
+            setInterval(updateSystemStatus, 30000);
+            
+            function updateSystemStatus() {
+                const indicator = document.querySelector('.status-indicator');
+                // Future integration: Real system status check
+                indicator.className = 'status-indicator online';
+            }
+        });
+    </script>
+    
+    <!-- Page-specific JavaScript -->
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,13 @@
+Metadata-Version: 2.2
+Name: hr_management_system
+Version: 0.1.0
+Requires-Dist: google-generativeai>=0.3.0
+Requires-Dist: langgraph>=0.0.15
+Requires-Dist: fastapi>=0.103.1
+Requires-Dist: uvicorn>=0.23.2
+Requires-Dist: python-dotenv>=1.0.0
+Requires-Dist: pydantic>=2.3.0
+Requires-Dist: jinja2>=3.1.2
+Requires-Dist: tenacity>=8.2.3
+Requires-Dist: setuptools>=42.0.0
+Dynamic: requires-dist

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>{{ page_title }} - HR Management System</title>
+    <link rel="stylesheet" href="/static/css/main.css">
+    <script src="/static/js/main.js" defer></script>
+</head>
+<body>
+    <div class="app-container">
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <h1>HR System</h1>
+                <p>AI-powered HR management</p>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="/" class="nav-item {% if active_page == 'dashboard' %}active{% endif %}">
+                    <span class="material-icons">dashboard</span> Dashboard
+                </a>
+                <a href="/recruitment" class="nav-item {% if active_page == 'recruitment' %}active{% endif %}">
+                    <span class="material-icons">people</span> Recruitment
+                </a>
+                <a href="/performance" class="nav-item {% if active_page == 'performance' %}active{% endif %}">
+                    <span class="material-icons">insert_chart</span> Performance
+                </a>
+                <a href="/feedback" class="nav-item {% if active_page == 'feedback' %}active{% endif %}">
+                    <span class="material-icons">feedback</span> Feedback
+                </a>
+            </nav>
+        </div>
+        <div class="main-content">
+            <header class="main-header">
+                <h2>{{ page_title }}</h2>
+                <div class="user-info">
+                    <span>Admin User</span>
+                </div>
+            </header>
+            <main>
+                <div class="content-container">
+                    <h1>{{ page_title }}</h1>
+                    <p>Welcome to the {{ page_title }} page of the HR Management System.</p>
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+</html>
